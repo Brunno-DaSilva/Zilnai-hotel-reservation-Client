@@ -51,7 +51,7 @@ class Room extends Component {
 
   onCloseReservation = (data) => {
     this.setState({
-      showReservation: true,
+      showReservation: false,
       currentReservation: data.id,
     });
   };

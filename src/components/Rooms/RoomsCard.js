@@ -27,66 +27,6 @@ const RoomCards = ({
   showModal,
   onClose,
 }) => {
-  // state = {
-  //   roomInfo: [],
-  //   show: false,
-  //   currentModal: "",
-
-  //   showReservation: false,
-  //   userReservation: [],
-  //   currentReservation: "",
-
-  //   formInputs: {
-  //     userName: "",
-  //     phoneNumber: "",
-  //     email: "",
-  //     address: "",
-  //     card: "",
-  //     cvc: "",
-  //     checkIn: "",
-  //     checkOut: "",
-  //     roomName: "",
-  //   },
-  // };
-
-  // // Display and Close Room information
-  // onClose = (e) => {
-  //   setState({
-  //     show: false,
-  //   });
-  // };
-
-  // showModal = (data) => {
-  //   setState({
-  //     show: true,
-  //     currentModal: data.id,
-  //   });
-  // };
-
-  // // Display and Close Reservation form
-
-  // showReservation = (data) => {
-  //   setState({
-  //     showReservation: true,
-  //     currentReservation: data.id,
-  //   });
-  // };
-
-  // onCloseReservation = (data) => {
-  //   setState({
-  //     showReservation: true,
-  //     currentReservation: data.id,
-  //   });
-  // };
-  // //Form information
-
-  // handleChange = (event) => {
-  //   const updateInput = Object.assign(formInputs, {
-  //     [event.target.id]: event.target.value,
-  //   });
-  //   setState(updateInput);
-  // };
-
   const handleSubmit = (event) => {
     event.preventDefault();
   };
@@ -170,7 +110,10 @@ const RoomCards = ({
                           ) : (
                             <div></div>
                           )}
-                          <img src="https://source.unsplash.com/collection/3448800/" />
+                          <img
+                            src="https://source.unsplash.com/collection/3448800/"
+                            alt={info.name}
+                          />
                         </div>
                       </div>
                       <div className="modal-body">
@@ -231,7 +174,7 @@ const RoomCards = ({
                       <div className="modal-footer">
                         <div className="btn-close-container">
                           <button className="btn-close" onClick={onClose}>
-                            Close
+                            Close info
                           </button>
                         </div>
                       </div>
@@ -285,7 +228,7 @@ const RoomCards = ({
                 <button
                   className="btn-more-info"
                   onClick={(e) => {
-                    showReservation(info);
+                    displayReservation(info);
                   }}
                 >
                   Reserve
@@ -310,14 +253,17 @@ const RoomCards = ({
                         ) : (
                           <div></div>
                         )}
-                        <img src="https://source.unsplash.com/collection/3448800/" />
+                        <img
+                          src="https://source.unsplash.com/collection/3448800/"
+                          alt={info.name}
+                        />
                       </div>
                     </div>
                     <div className="modal-body">
                       <div>
                         <div>
                           <form onSubmit={handleSubmit}>
-                            <label htmlFor="userName">Full Name</label>
+                            <label htmlFor="userName">Full Name: </label>
                             <input
                               type="text"
                               id="userName"
@@ -325,7 +271,7 @@ const RoomCards = ({
                               value={formInputs.userName}
                               onChange={handleChange}
                             />
-                            <label htmlFor="phoneNumber">Phone Number</label>
+                            <label htmlFor="phoneNumber">Phone Number:</label>
                             <input
                               type="text"
                               id="phoneNumber"
@@ -333,7 +279,7 @@ const RoomCards = ({
                               value={formInputs.phoneNumber}
                               onChange={handleChange}
                             />
-                            <label htmlFor="email">Email</label>
+                            <label htmlFor="email">Email:</label>
                             <input
                               type="text"
                               id="email"
@@ -342,7 +288,7 @@ const RoomCards = ({
                               onChange={handleChange}
                             />
 
-                            <label htmlFor="address">Home Address</label>
+                            <label htmlFor="address">Home Address:</label>
                             <input
                               type="text"
                               id="address"
@@ -350,7 +296,7 @@ const RoomCards = ({
                               value={formInputs.address}
                               onChange={handleChange}
                             />
-                            <label htmlFor="card">Card Number</label>
+                            <label htmlFor="card">Card Number:</label>
                             <input
                               type="text"
                               id="card"
@@ -358,7 +304,7 @@ const RoomCards = ({
                               value={formInputs.card}
                               onChange={handleChange}
                             />
-                            <label htmlFor="cvc">CVC</label>
+                            <label htmlFor="cvc">CVC:</label>
                             <input
                               type="text"
                               id="cvc"
@@ -366,7 +312,7 @@ const RoomCards = ({
                               value={formInputs.cvc}
                               onChange={handleChange}
                             />
-                            <label htmlFor="checkIn">CheckIn</label>
+                            <label htmlFor="checkIn">CheckIn:</label>
                             <input
                               type="text"
                               id="checkIn"
@@ -374,7 +320,7 @@ const RoomCards = ({
                               value={formInputs.checkIn}
                               onChange={handleChange}
                             />
-                            <label htmlFor="checkOut">checkOut</label>
+                            <label htmlFor="checkOut">checkOut:</label>
                             <input
                               type="text"
                               id="checkOut"
@@ -382,7 +328,7 @@ const RoomCards = ({
                               value={formInputs.checkOut}
                               onChange={handleChange}
                             />
-                            <label htmlFor="roomName">Room Name</label>
+                            <label htmlFor="roomName">Room Name:</label>
                             <select
                               type="text"
                               id="roomName"
