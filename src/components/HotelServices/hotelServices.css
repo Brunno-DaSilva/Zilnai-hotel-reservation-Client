@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css?family=Quicksand&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Marcellus&display=swap");
+
+.main-services {
+  padding: 3rem;
+  width: auto;
+  min-height: 100vh;
+  background-color: #f1f6fe;
+  color: #22315e;
+  z-index: -2;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.main-services h1 {
+  font-family: "Marcellus", serif;
+  text-transform: uppercase;
+  font-size: 2.5rem;
+  letter-spacing: 0.7rem;
+  margin-bottom: 4rem;
+  margin-top: 4rem;
+  color: #172243;
+}
+
+.flaticon-container {
+  width: 50%;
+  height: 30%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.services-container {
+  width: 88vw;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.services-container p {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+}
+.services {
+  width: 20vw;
+  height: 25vh;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  transition: all ease-in 0.35s;
+}
+
+.services:hover {
+  background-color: #263769;
+  color: #f7eb82;
+  border-radius: 8px;
+}
+
+.sub-title-util {
+  margin-top: 20vh;
+  background-color: #fcf7c8;
+}
+.sub-title-util h1 {
+  margin-bottom: -3rem;
+}
+.utilities-container {
+  width: 100vw;
+  min-height: 50vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+  background-color: #fcf7c8;
+}
+
+.utilities {
+  width: 22%;
+  height: 20%;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.ut-text-holder {
+  background-color: #263769;
+  box-shadow: 0 5px 8px 0 rgba(0, 0, 0, 0.2), 0 7px 20px 0 rgba(0, 0, 0, 0.17);
+  width: 60%;
+  color: #f7eb82;
+  padding: 1rem;
+}
+
+.ut-text-holder h3 {
+  font-family: "Quicksand", sans-serif;
+  font-size: 1rem;
+  padding: 1rem;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+.flaticon-container-ut {
+  width: 20%;
+  height: 25%;
+  padding: 2rem;
+  border-radius: 50%;
+  background-color: #f7eb82;
+  box-shadow: 0 3px 5px 0 rgba(0, 0, 0, 0.2), 0 3px 5px 0 rgba(0, 0, 0, 0.17);
+  margin-bottom: -1rem;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.room-offers {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 98vw;
+  margin-top: 3rem;
+}
+
+.offer-one,
+.offer-two,
+.offer-three,
+.offer-four {
+  width: 45.5%;
+  height: 64vh;
+  overflow: hidden !important;
+}
+
+.offer-one {
+  background-image: url("./img/hotelpool.png");
+  background-size: cover;
+}
+
+.offer-two {
+  background-image: url("./img/dinner.png");
+  background-size: cover;
+}
+
+.offer-three {
+  background-image: url("./img/roomview.png");
+  background-size: cover;
+}
+
+.offer-four {
+  background-image: url("./img/relaxing.png");
+  background-size: cover;
+}
+
+.room-desc {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  width: 10rem;
+  margin: 1rem;
+  padding: 0;
+  position: absolute;
+}
+
+.room-offer-price {
+  color: #f1f6fe;
+  font-size: 0.8rem;
+  letter-spacing: 0.1rem;
+  font-weight: bolder;
+  z-index: 2 !important;
+}
+
+.room-offer-price::after {
+  content: "";
+  position: absolute;
+  top: -0.25rem;
+  left: -1rem;
+  bottom: -0.25rem;
+  width: calc(100% + 3rem);
+  height: 3.2rem;
+  background: #f7eb82;
+  opacity: 0.7;
+  z-index: -1;
+  transform: scaleX(0.1);
+  transform-origin: left;
+  transition: ease-in-out 1s;
+}
+
+.offer-one:hover .room-offer-price::after,
+.offer-two:hover .room-offer-price::after,
+.offer-three:hover .room-offer-price::after,
+.offer-four:hover .room-offer-price::after {
+  transform: scaleX(1);
+}
+
+.room-offer-title {
+  position: relative;
+  z-index: 1;
+  color: transparent;
+  margin: 0;
+  transition: color 150ms 350ms;
+  padding-top: 0.5rem;
+  font-size: 0.9rem;
+  letter-spacing: 0.1rem;
+  font-weight: bolder;
+}
+
+.room-offer-title::after {
+  content: "";
+  position: absolute;
+  top: 0.3rem;
+  left: -2.2rem;
+  bottom: -0.75rem;
+  right: -0.75rem;
+  background: #172243;
+  opacity: 0.8;
+  z-index: -1;
+  width: calc(100% + 5.3rem);
+  transform: scaleY(0);
+  transition: ease-in-out 1s;
+  transform-origin: top;
+}
+.offer-one:hover .room-offer-title,
+.offer-two:hover .room-offer-title,
+.offer-three:hover .room-offer-title,
+.offer-four:hover .room-offer-title {
+  color: #f1f6fe;
+}
+
+.offer-one:hover .room-offer-title::after,
+.offer-two:hover .room-offer-title::after,
+.offer-three:hover .room-offer-title::after,
+.offer-four:hover .room-offer-title::after {
+  transform: scaleX(1);
+}
