@@ -1,11 +1,11 @@
 import React, { Component } from "react";
 import "./rooms.css";
 import RoomsCard from "./RoomsCard";
-import UserReservation from "../UserReservation/UserReservation";
+import HOTEL_ROOMS from "./hotel_rooms-data";
 
 class Room extends Component {
   state = {
-    roomInfo: [],
+    roomInfo: HOTEL_ROOMS,
     show: false,
     currentModal: "",
 
@@ -13,14 +13,15 @@ class Room extends Component {
     userReservation: [],
     currentReservation: "",
 
-    formInput: {
+    formInputs: {
       userName: "",
       phoneNumber: "",
       email: "",
       address: "",
       card: "",
       cvc: "",
-      date: "",
+      checkIn: "",
+      checkOut: "",
       roomName: "",
     },
   };
@@ -41,7 +42,7 @@ class Room extends Component {
 
   // Display and Close Reservation form
 
-  showReservation = (data) => {
+  displayReservation = (data) => {
     this.setState({
       showReservation: true,
       currentReservation: data.id,
@@ -54,56 +55,42 @@ class Room extends Component {
       currentReservation: data.id,
     });
   };
-
-  componentDidMount() {
-    this.getRoomInfo();
-  }
-
-  getRoomInfo() {
-    fetch("http://localhost:3000/hotel_rooms")
-      .then((res) => res.json())
-      .then((jsonedRoomInfo) => this.setState({ roomInfo: jsonedRoomInfo }))
-      .catch((error) => console.error(error));
-  }
-
   //Form information
 
-  handleSubmit = (event) => {
-    event.preventDefault();
-    fetch("http://localhost:3000/user_reservations", {
-      body: JSON.stringify(this.state.formInputs),
-      method: "POST",
-      headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
-      },
-    })
-      .then((createdUserReservation) => {
-        return createdUserReservation.json();
-      })
-      .then((jsonedUserReservation) => {
-        this.setState({
-          formInputs: {
-            userName: "",
-            phoneNumber: "",
-            email: "",
-            address: "",
-            card: "",
-            cvc: "",
-            checkIn: "",
-            checkOut: "",
-            roomName: "",
-          },
-          userReservation: [jsonedUserReservation, ...this.state.notices],
-        });
-      })
-      .catch((error) => console.log(error));
+  handleChange = (event) => {
+    const updateInput = Object.assign(this.state.formInputs, {
+      [event.target.id]: event.target.value,
+    });
+    this.setState(updateInput);
   };
 
   render() {
+    const {
+      roomInfo,
+      show,
+      currentModal,
+      showReservation,
+      userReservation,
+      currentReservation,
+      formInputs,
+    } = this.state;
+
     return (
       <div className="container">
-        <RoomsCard content={this.state.roomInfo} />
+        <RoomsCard
+          show={show}
+          roomInfo={roomInfo}
+          currentModal={currentModal}
+          showReservation={showReservation}
+          userReservation={userReservation}
+          currentReservation={currentReservation}
+          formInputs={formInputs}
+          onCloseReservation={this.onCloseReservation}
+          handleChange={this.handleChange}
+          displayReservation={this.displayReservation}
+          showModal={this.showModal}
+          onClose={this.onClose}
+        />
       </div>
     );
   }
